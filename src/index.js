@@ -4,15 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { GET_ANIMALS } from './actions';
+import { animalReplacer } from './utils/utils'
 
 
 
 const reducer = ( state={ animals: [] }, action ) => {
     switch(action.type) {
         case GET_ANIMALS:
-        return action.animals;
+        return { animals: action.animals };
 
         default:
         return state;
@@ -20,7 +21,7 @@ const reducer = ( state={ animals: [] }, action ) => {
 }
 
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(animalReplacer));
 
 ReactDOM.render(
     <Provider store={store}>
