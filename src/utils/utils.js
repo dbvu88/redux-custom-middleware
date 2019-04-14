@@ -4,9 +4,16 @@ export const textToEmoji = store => {
     return next => { 
         console.log('next', next)
         return action => {
+            console.log(JSON.stringify(action));
+
             if (action.animals) {
                 action.animals = action.animals.map(animal => emojiOf(animal));
             }
+            if (action.animal) {
+                // console.log(action)
+                action.animal = emojiOf(action.animal)
+            }
+            
             console.log(JSON.stringify(action));
             return next(action);
         }
@@ -17,11 +24,13 @@ const emojiMapper = {
     chicken: '🐔',
     goat: '🐐',
     dog: '🐶',
-    deer: '🦌'
+    deer: '🦌',
+    hamster: '🐹'
 }
 
 const emojiOf = (animal) => { 
     if (emojiMapper[`${animal}`]) {
+        console.log(animal)
         return emojiMapper[`${animal}`]
     }
 

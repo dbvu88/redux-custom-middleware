@@ -12,7 +12,7 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    this.props.getAnimals(['chicken', 'dog', 'goat', 'Kyle']);
+    this.props.getAnimals(['chicken', 'dog', 'goat', 'Duc Vu']);
   }
 
   addAnimal = event => {
