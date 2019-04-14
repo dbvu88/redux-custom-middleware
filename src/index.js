@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { GET_ANIMALS } from './actions';
+import { GET_ANIMALS, ADD_ANIMAL } from './actions';
 import { textToEmoji } from './utils/utils'
 
 
@@ -14,6 +14,9 @@ const reducer = ( state={ animals: [] }, action ) => {
     switch(action.type) {
         case GET_ANIMALS:
         return { animals: action.animals };
+
+        case ADD_ANIMAL:
+        return { animals: [...state.animals, action.animal] };
 
         default:
         return state;
