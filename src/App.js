@@ -9,7 +9,7 @@ class App extends Component {
   //   super(props);
   // }
   componentDidMount() {
-    this.props.getAnimals(['chicken', 'dog', 'goat'])
+    this.props.getAnimals(['chicken', 'dog', 'goat', 'Kyle'])
   }
   render() {
     console.log(this.props)

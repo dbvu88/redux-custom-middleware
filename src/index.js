@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { GET_ANIMALS } from './actions';
-import { animalReplacer } from './utils/utils'
+import { textToEmoji } from './utils/utils'
 
 
 
@@ -21,7 +21,7 @@ const reducer = ( state={ animals: [] }, action ) => {
 }
 
 
-const store = createStore(reducer, applyMiddleware(animalReplacer));
+const store = createStore(reducer, applyMiddleware(textToEmoji));
 
 ReactDOM.render(
     <Provider store={store}>
